@@ -1,0 +1,20 @@
+﻿using ClassLibrary;
+
+Money uah = new MoneyUAH(500, 45);
+uah.AddMoney(600, 100);
+uah.Display();
+Console.WriteLine("---------");
+Product fireworks = new Product("Fireworks", "per One", new MoneyUAH(100, 0));
+fireworks.Display();
+Console.WriteLine("---------");
+Warehouse warehouse = new Warehouse(new ProductInfo(fireworks, 30, new DateTime(2024, 02, 21)));
+Console.WriteLine("---------");
+warehouse.AddProduct(new ProductInfo(new Product("Laptop", "per One", new MoneyUAH(15000, 0)), 10, new DateTime(2024, 03, 09)));
+Console.WriteLine("---------");
+warehouse.AddProduct(new ProductInfo(fireworks, 60, new DateTime(2024, 02, 21)));
+Console.WriteLine("---------");
+warehouse.Display();
+Console.WriteLine("---------");
+warehouse.RemoveProduct("laptop", 2);
+Console.WriteLine("---------");
+Reporting.InventoryReport(warehouse);
