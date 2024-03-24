@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AbstractFactoryClassLibrary\AbstractFactoryClassLibrary.csproj" />
+    <ProjectReference Include="..\BuilderClassLibrary\BuilderClassLibrary.csproj" />
+    <ProjectReference Include="..\FactoryMethodClassLibrary\FactoryMethodClassLibrary.csproj" />
+    <ProjectReference Include="..\PrototypeClassLibrary\PrototypeClassLibrary.csproj" />
+    <ProjectReference Include="..\SingletonClassLibrary\SingletonClassLibrary.csproj" />
+  </ItemGroup>
+
+</Project>
