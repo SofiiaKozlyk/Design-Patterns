@@ -1,0 +1,2 @@
+Warn: Some Warning
+Log: Hello, World!

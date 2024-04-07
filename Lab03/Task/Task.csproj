@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdapterClassLibrary\AdapterClassLibrary.csproj" />
+    <ProjectReference Include="..\BridgeClassLibrary\BridgeClassLibrary.csproj" />
+    <ProjectReference Include="..\CompositeClassLibrary\CompositeClassLibrary.csproj" />
+    <ProjectReference Include="..\DecoratorClassLibrary\DecoratorClassLibrary.csproj" />
+    <ProjectReference Include="..\FlyweightClassLibrary\FlyweightClassLibrary.csproj" />
+    <ProjectReference Include="..\ProxyClassLibrary\ProxyClassLibrary.csproj" />
+  </ItemGroup>
+
+</Project>
