@@ -24,10 +24,15 @@ namespace CompositeClassLibrary
             _closingType = closingType;
             _cssClasses = cssClasses;
             _children = new List<LightNode>();
+            this.AddLifecycleHooks();
         }
         public void Add(LightNode node)
         {
             _children.Add(node);
+            if(node is LightTextNode lightTextNode)
+            {
+                lightTextNode.OnInserted();
+            }
         }
         public void Remove(LightNode node)
         {
@@ -59,6 +64,17 @@ namespace CompositeClassLibrary
                 str += new string(' ', depth) + $"</{_tag}>\n";
             }
             return str;
+        }
+        public override void OnCreated()
+        {
+            Console.WriteLine($"LightElementNode {this._tag} created.");
+        }
+        public override void OnClassListApplied()
+        {
+            if(this._cssClasses.Count > 0)
+            {
+                Console.WriteLine($"{this._tag}`s class list applied.");
+            }
         }
         public override IEnumerator<LightNode> GetEnumerator()
         {
