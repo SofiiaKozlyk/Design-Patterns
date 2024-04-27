@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasks", "Tasks\Tasks.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeClassLibrary", "CompositeClassLibrary\CompositeClassLibrary.csproj", "{B32C63BC-9A3B-4CA4-B95A-0CD92B77D6E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IteratorClassLibrary", "IteratorClassLibrary\IteratorClassLibrary.csproj", "{EDED00B8-2815-4B6F-8B37-18B6B1019A33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorClassLibrary", "IteratorClassLibrary\IteratorClassLibrary.csproj", "{EDED00B8-2815-4B6F-8B37-18B6B1019A33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

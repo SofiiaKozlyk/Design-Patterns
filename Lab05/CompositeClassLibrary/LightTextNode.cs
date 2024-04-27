@@ -13,6 +13,7 @@ namespace CompositeClassLibrary
         public LightTextNode(string text)
         {
             _text = text;
+            this.OnCreated();
         }
         public override string Display(int depth)
         {
@@ -21,5 +22,14 @@ namespace CompositeClassLibrary
         public override string OuterHTML => _text;
 
         public override string InnerHTML => _text;
+
+        public override void OnCreated()
+        {
+            Console.WriteLine($"LightTextNode created.");
+        }
+        public override void OnInserted()
+        {
+            Console.WriteLine($"This LightTextNode was inserted into the LightHTML element.");
+        }
     }
 }

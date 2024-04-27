@@ -41,3 +41,9 @@ while (breadthFirstIterator.MoveNext())
 {
     Console.WriteLine(breadthFirstIterator.Current.OuterHTML);
 }
+Console.WriteLine("--------------------------");
+
+// Template Method
+var div = new LightElementNode("div", "block", "closed", new List<string> { "class1", "class2" });
+var divText = new LightTextNode("Some text.");
+div.Add(divText);

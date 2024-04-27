@@ -11,9 +11,23 @@ namespace CompositeClassLibrary
     public abstract class LightNode : IEnumerable<LightNode>
     {
         public abstract string OuterHTML { get; }
-
         public abstract string InnerHTML { get; }
         public abstract string Display(int depth);
+        public virtual void OnCreated()
+        {
+        }
+        public virtual void OnInserted()
+        {
+        }
+        public virtual void OnClassListApplied()
+        {
+        }
+        public void AddLifecycleHooks()
+        {
+            OnCreated();
+            OnInserted();
+            OnClassListApplied();
+        }
         public virtual IEnumerator<LightNode> GetEnumerator()
         {
             yield return this;
