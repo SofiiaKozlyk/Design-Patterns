@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CompositeClassLibrary
 {
@@ -13,6 +14,9 @@ namespace CompositeClassLibrary
         private string _closingType;
         private List<string> _cssClasses;
         private List<LightNode> _children;
+        public List<LightNode> Children { 
+            get { return _children; }
+        }
         public LightElementNode(string tag, string displayType, string closingType, List<string> cssClasses)
         {
             _tag = tag;
@@ -55,6 +59,17 @@ namespace CompositeClassLibrary
                 str += new string(' ', depth) + $"</{_tag}>\n";
             }
             return str;
+        }
+        public override IEnumerator<LightNode> GetEnumerator()
+        {
+            yield return this;
+            foreach (var child in _children)
+            {
+                foreach(var node in child)
+                {
+                    yield return node;
+                }
+            }
         }
     }
 }
