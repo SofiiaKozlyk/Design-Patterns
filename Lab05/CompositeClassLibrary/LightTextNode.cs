@@ -9,6 +9,7 @@ namespace CompositeClassLibrary
     public class LightTextNode : LightNode
     {
         private string _text;
+        public string Text { get { return _text; } set { _text = value; } }
 
         public LightTextNode(string text)
         {

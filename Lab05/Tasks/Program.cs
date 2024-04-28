@@ -1,5 +1,6 @@
 ﻿using CompositeClassLibrary;
 using IteratorClassLibrary;
+using CommandClassLibrary;
 
 // Iterator
 var html = new LightElementNode("html", "block", "closed", new List<string>());
@@ -47,3 +48,18 @@ Console.WriteLine("--------------------------");
 var div = new LightElementNode("div", "block", "closed", new List<string> { "class1", "class2" });
 var divText = new LightTextNode("Some text.");
 div.Add(divText);
+Console.WriteLine("--------------------------");
+
+// Command
+var addNodeCommand = new AddNodeCommand(div, h1);
+addNodeCommand.Execute();
+Console.WriteLine(div.OuterHTML);
+Console.WriteLine("--------------------------");
+var removeNodeCommand = new RemoveNodeCommand(h1, img);
+removeNodeCommand.Execute();
+Console.WriteLine(div.OuterHTML);
+Console.WriteLine("--------------------------");
+var changeTextCommand = new ChangeTextCommand(divText, "div text");
+changeTextCommand.Execute();
+Console.WriteLine(div.OuterHTML);
+Console.WriteLine("--------------------------");
