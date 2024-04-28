@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompositeClassLibrary.StateClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace CompositeClassLibrary
         public List<LightNode> Children { 
             get { return _children; }
         }
+        private INodeState _state = null;
         public LightElementNode(string tag, string displayType, string closingType, List<string> cssClasses)
         {
             _tag = tag;
@@ -24,7 +26,14 @@ namespace CompositeClassLibrary
             _closingType = closingType;
             _cssClasses = cssClasses;
             _children = new List<LightNode>();
+            _state = new DefaultState();
+            _state.SetLightNode(this);
             this.AddLifecycleHooks();
+        }
+        public void TransitionTo(INodeState state)
+        {
+            this._state = state;
+            this._state.SetLightNode(this);
         }
         public void Add(LightNode node)
         {
@@ -38,18 +47,8 @@ namespace CompositeClassLibrary
         {
             _children.Remove(node);
         }
-        public override string OuterHTML => Display(0);
-        public override string InnerHTML
-        {
-            get {
-                string str = "";
-                foreach (var child in _children)
-                {
-                    str += child.OuterHTML;
-                }
-                return str;
-            }
-        }
+        public override string OuterHTML => _state.Handle();
+        public override string InnerHTML => String.Join("", _children.ConvertAll(child => child.OuterHTML));
         public override string Display(int depth)
         {
             string str = "";

@@ -1,6 +1,7 @@
 ﻿using CompositeClassLibrary;
 using IteratorClassLibrary;
 using CommandClassLibrary;
+using CompositeClassLibrary.StateClasses;
 
 // Iterator
 var html = new LightElementNode("html", "block", "closed", new List<string>());
@@ -62,4 +63,17 @@ Console.WriteLine("--------------------------");
 var changeTextCommand = new ChangeTextCommand(divText, "div text");
 changeTextCommand.Execute();
 Console.WriteLine(div.OuterHTML);
+Console.WriteLine("--------------------------");
+
+// State
+var p2 = new LightElementNode("p", "block", "closed", new List<string> { "class1", "class2" });
+var p2Text = new LightTextNode("Some text.");
+p2.Add(p2Text);
+Console.WriteLine("\n" + p2.OuterHTML);
+Console.WriteLine("--------------------------");
+p2.TransitionTo(new HoveredState());
+Console.WriteLine(p2.OuterHTML);
+Console.WriteLine("--------------------------");
+p2.TransitionTo(new ClickedState());
+Console.WriteLine(p2.OuterHTML);
 Console.WriteLine("--------------------------");
