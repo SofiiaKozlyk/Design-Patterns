@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeClassLibrary", "Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorClassLibrary", "IteratorClassLibrary\IteratorClassLibrary.csproj", "{EDED00B8-2815-4B6F-8B37-18B6B1019A33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandClassLibrary", "CommandClassLibrary\CommandClassLibrary.csproj", "{293A6F50-3962-405B-B250-BB56B9489F87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandClassLibrary", "CommandClassLibrary\CommandClassLibrary.csproj", "{293A6F50-3962-405B-B250-BB56B9489F87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
