@@ -1,4 +1,5 @@
 ﻿using CompositeClassLibrary.StateClasses;
+using CompositeClassLibrary.VisitorClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace CompositeClassLibrary
         public List<LightNode> Children { 
             get { return _children; }
         }
+        public string Tag
+        {
+            get { return _tag; }
+        }
         private INodeState _state = null;
         public LightElementNode(string tag, string displayType, string closingType, List<string> cssClasses)
         {
@@ -34,6 +39,14 @@ namespace CompositeClassLibrary
         {
             this._state = state;
             this._state.SetLightNode(this);
+        }
+        public override void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+            foreach(var child in Children)
+            {
+                child.Accept(visitor);
+            }
         }
         public void Add(LightNode node)
         {

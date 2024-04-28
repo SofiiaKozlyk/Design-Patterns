@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompositeClassLibrary.VisitorClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,10 @@ namespace CompositeClassLibrary
         {
             _text = text;
             this.OnCreated();
+        }
+        public override void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
         }
         public override string Display(int depth)
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompositeClassLibrary.VisitorClasses;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace CompositeClassLibrary
         public abstract string OuterHTML { get; }
         public abstract string InnerHTML { get; }
         public abstract string Display(int depth);
+        public abstract void Accept(IVisitor visitor);
         public virtual void OnCreated()
         {
         }

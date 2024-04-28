@@ -2,6 +2,8 @@
 using IteratorClassLibrary;
 using CommandClassLibrary;
 using CompositeClassLibrary.StateClasses;
+using CompositeClassLibrary.VisitorClasses;
+using System.Linq.Expressions;
 
 // Iterator
 var html = new LightElementNode("html", "block", "closed", new List<string>());
@@ -77,3 +79,7 @@ Console.WriteLine("--------------------------");
 p2.TransitionTo(new ClickedState());
 Console.WriteLine(p2.OuterHTML);
 Console.WriteLine("--------------------------");
+
+// Visitor
+var visitor = new NodeVisitor();
+div.Accept(visitor);
